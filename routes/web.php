@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Dashboard');
-});
+Route::get('login/google', 'LoginController@redirectToProvider');
+Route::get('login/google/callback', 'LoginController@handleProviderCallback');
+
+Route::get('/', 'DashboardController@index');
+
+
+// User Tasks
+Route::post('/users/{user}/tasks/', 'UserTasksController@store');
+Route::patch('/users/{user}/tasks', 'UserTasksController@update');
+Route::delete('/users/{user}/tasks/{task}', 'UserTasksController@destroy');

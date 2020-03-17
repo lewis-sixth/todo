@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class)->orderBy('priority');
+    }
+
+    public function getNextTaskPriority()
+    {
+        return count($this->tasks) ? collect($this->tasks)->last()->priority + 1 : 1;
+    }
 }

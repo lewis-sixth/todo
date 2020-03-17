@@ -1991,212 +1991,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     draggable: vuedraggable__WEBPACK_IMPORTED_MODULE_0___default.a
   },
   data: function data() {
-    return {
-      myArray: [1, 2, 3, 4, 5]
-    };
+    return {};
+  },
+  computed: {
+    self: function self() {
+      return this.$page.users[0];
+    },
+    users: function users() {
+      return this.$page.users;
+    }
+  },
+  methods: {
+    changed: function changed() {
+      this.$inertia.patch("/users/".concat(this.self.id, "/tasks"), {
+        tasks: this.self.tasks
+      });
+    },
+    create: function create(value) {
+      this.$inertia.post("/users/".concat(this.self.id, "/tasks"), {
+        task: value.target.innerHTML
+      });
+      value.target.innerHTML = "";
+    },
+    finish: function finish(id) {
+      this.$inertia["delete"]("/users/".concat(this.self.id, "/tasks/").concat(id));
+    }
   }
 });
 
@@ -2214,7 +2039,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".ghost[data-v-097ba13b] {\n  opacity: 0.5;\n  background: #c8ebfb;\n}\r\n", ""]);
+exports.push([module.i, ".ghost[data-v-097ba13b] {\n  opacity: 0.5;\n  background: #c8ebfb;\n}\n", ""]);
 
 // exports
 
@@ -24649,105 +24474,30 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "min-h-screen flex flex-col bg-gray-100" }, [
-    _c("nav", { staticClass: "bg-white shadow-sm" }, [
-      _c("div", { staticClass: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" }, [
-        _c("div", { staticClass: "flex justify-between h-16" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "hidden sm:ml-6 sm:flex sm:items-center" }, [
-            _c(
-              "button",
-              {
-                staticClass:
-                  "p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:text-gray-500 focus:bg-gray-100 transition duration-150 ease-in-out"
-              },
-              [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "h-6 w-6",
-                    attrs: {
-                      stroke: "currentColor",
-                      fill: "none",
-                      viewBox: "0 0 24 24"
-                    }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round",
-                        "stroke-width": "2",
-                        d:
-                          "M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                      }
-                    })
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _vm._m(1)
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "-mr-2 flex items-center sm:hidden" }, [
-            _c(
-              "button",
-              {
-                staticClass:
-                  "inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
-              },
-              [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "h-6 w-6",
-                    attrs: {
-                      stroke: "currentColor",
-                      fill: "none",
-                      viewBox: "0 0 24 24"
-                    }
-                  },
-                  [
-                    _c("path", {
-                      staticClass: "inline-flex",
-                      attrs: {
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round",
-                        "stroke-width": "2",
-                        d: "M4 6h16M4 12h16M4 18h16"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("path", {
-                      staticClass: "hidden",
-                      attrs: {
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round",
-                        "stroke-width": "2",
-                        d: "M6 18L18 6M6 6l12 12"
-                      }
-                    })
-                  ]
-                )
-              ]
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _vm._m(2)
-    ]),
-    _vm._v(" "),
     _c("main", { staticClass: "p-6 flex-1 flex" }, [
       _c(
         "div",
         {
           staticClass:
-            "mr-6 max-w-md bg-white overflow-hidden shadow-lg rounded-lg"
+            "mr-6 max-w-sm bg-white overflow-hidden shadow-lg rounded-lg"
         },
         [
-          _vm._m(3),
+          _c(
+            "div",
+            {
+              staticClass:
+                "bg-indigo-900 border-b border-gray-200 px-4 py-5 sm:px-6"
+            },
+            [
+              _c("h2", { staticClass: "text-white text-lg font-semibold" }, [
+                _vm._v(_vm._s(_vm.self.name))
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "text-indigo-400" }, [
+                _vm._v("asdasd asd as dasd asd asd asd asd s")
+              ])
+            ]
+          ),
           _vm._v(" "),
           _c(
             "div",
@@ -24757,29 +24507,48 @@ var render = function() {
                 "draggable",
                 {
                   attrs: { "ghost-class": "ghost" },
+                  on: { change: _vm.changed },
                   model: {
-                    value: _vm.myArray,
+                    value: _vm.self.tasks,
                     callback: function($$v) {
-                      _vm.myArray = $$v
+                      _vm.$set(_vm.self, "tasks", $$v)
                     },
-                    expression: "myArray"
+                    expression: "self.tasks"
                   }
                 },
-                _vm._l(_vm.myArray, function(item, n) {
+                _vm._l(_vm.self.tasks, function(task, n) {
                   return _c(
                     "div",
-                    { key: n, staticClass: "px-4 py-5 sm:p-6" },
+                    { key: n, staticClass: "px-4 py-5 sm:p-6 border-b" },
                     [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(item) +
-                          "\n                    "
-                      )
+                      _c("div", {
+                        domProps: { innerHTML: _vm._s(task.content) }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "-mb-6 -mx-6 p-3 text-right" }, [
+                        _c(
+                          "button",
+                          {
+                            on: {
+                              click: function($event) {
+                                return _vm.finish(task.id)
+                              }
+                            }
+                          },
+                          [_vm._v("Complete")]
+                        )
+                      ])
                     ]
                   )
                 }),
                 0
-              )
+              ),
+              _vm._v(" "),
+              _c("div", {
+                staticClass: "px-4 py-5 sm:p-6 border-b",
+                attrs: { contenteditable: "true" },
+                on: { blur: _vm.create }
+              })
             ],
             1
           )
@@ -24793,21 +24562,63 @@ var render = function() {
             "flex-1 flex bg-white overflow-x-scroll shadow-lg rounded-lg",
           staticStyle: { "scroll-snap-type": "x mandatory" }
         },
-        _vm._l(7, function(n) {
+        _vm._l(_vm.$page.users, function(user, n) {
           return _c(
             "div",
             {
               key: n,
               staticClass: "w-80 flex-shrink-0",
-              class: n !== 7 ? "border-r" : "",
+              class: n !== _vm.users.length - 1 ? "border-r" : "",
               staticStyle: { "scroll-snap-align": "start" }
             },
             [
-              _vm._m(4, true),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "bg-indigo-900 border-b border-gray-200 px-4 py-5 sm:px-6"
+                },
+                [
+                  _c(
+                    "h2",
+                    { staticClass: "text-white text-lg font-semibold" },
+                    [_vm._v(_vm._s(user.name))]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "text-indigo-400" }, [
+                    _vm._v("asdasd asd as dasd asd asd asd asd s")
+                  ])
+                ]
+              ),
               _vm._v(" "),
-              _c("div", { staticClass: "px-4 py-5 sm:p-6" }, [
-                _vm._v("\n                    asd\n                ")
-              ])
+              _c(
+                "div",
+                {},
+                [
+                  _c(
+                    "draggable",
+                    {
+                      attrs: { "ghost-class": "ghost" },
+                      model: {
+                        value: user.tasks,
+                        callback: function($$v) {
+                          _vm.$set(user, "tasks", $$v)
+                        },
+                        expression: "user.tasks"
+                      }
+                    },
+                    _vm._l(user.tasks, function(task, n) {
+                      return _c("div", {
+                        key: n,
+                        staticClass: "px-4 py-5 sm:p-6 border-b",
+                        domProps: { innerHTML: _vm._s(task.content) }
+                      })
+                    }),
+                    0
+                  )
+                ],
+                1
+              )
             ]
           )
         }),
@@ -24816,312 +24627,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex" }, [
-      _c("div", { staticClass: "flex-shrink-0 flex items-center" }, [
-        _c("img", {
-          staticClass: "block lg:hidden h-8 w-auto",
-          attrs: { src: "/img/logos/workflow-mark-on-white.svg", alt: "" }
-        }),
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "hidden lg:block h-8 w-auto",
-          attrs: { src: "/img/logos/workflow-logo-on-white.svg", alt: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "hidden sm:ml-6 sm:flex" }, [
-        _c(
-          "a",
-          {
-            staticClass:
-              "inline-flex items-center px-1 pt-1 border-b-2 border-indigo-500 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out",
-            attrs: { href: "#" }
-          },
-          [
-            _vm._v(
-              "\n                            Dashboard\n                        "
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass:
-              "ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out",
-            attrs: { href: "#" }
-          },
-          [
-            _vm._v(
-              "\n                            Team\n                        "
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass:
-              "ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out",
-            attrs: { href: "#" }
-          },
-          [
-            _vm._v(
-              "\n                            Projects\n                        "
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass:
-              "ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out",
-            attrs: { href: "#" }
-          },
-          [
-            _vm._v(
-              "\n                            Calendar\n                        "
-            )
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ml-3 relative" }, [
-      _c("div", [
-        _c(
-          "button",
-          {
-            staticClass:
-              "flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
-          },
-          [
-            _c("img", {
-              staticClass: "h-8 w-8 rounded-full",
-              attrs: {
-                src:
-                  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-                alt: ""
-              }
-            })
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg"
-        },
-        [
-          _c("div", { staticClass: "py-1 rounded-md bg-white shadow-xs" }, [
-            _c(
-              "a",
-              {
-                staticClass:
-                  "block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out",
-                attrs: { href: "#" }
-              },
-              [_vm._v("Your Profile")]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass:
-                  "block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out",
-                attrs: { href: "#" }
-              },
-              [_vm._v("Settings")]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass:
-                  "block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out",
-                attrs: { href: "#" }
-              },
-              [_vm._v("Sign out")]
-            )
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "hidden sm:hidden" }, [
-      _c("div", { staticClass: "pt-2 pb-3" }, [
-        _c(
-          "a",
-          {
-            staticClass:
-              "block pl-3 pr-4 py-2 border-l-4 border-indigo-500 text-base font-medium text-indigo-700 bg-indigo-50 focus:outline-none focus:text-indigo-800 focus:bg-indigo-100 focus:border-indigo-700 transition duration-150 ease-in-out",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Dashboard")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass:
-              "mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Team")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass:
-              "mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Projects")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass:
-              "mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Calendar")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "pt-4 pb-3 border-t border-gray-200" }, [
-        _c("div", { staticClass: "flex items-center px-4" }, [
-          _c("div", { staticClass: "flex-shrink-0" }, [
-            _c("img", {
-              staticClass: "h-10 w-10 rounded-full",
-              attrs: {
-                src:
-                  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-                alt: ""
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "ml-3" }, [
-            _c(
-              "div",
-              { staticClass: "text-base font-medium leading-6 text-gray-800" },
-              [
-                _vm._v(
-                  "\n                            Tom Cook\n                        "
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "text-sm font-medium leading-5 text-gray-500" },
-              [
-                _vm._v(
-                  "\n                            tom@example.com\n                        "
-                )
-              ]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "mt-3" }, [
-          _c(
-            "a",
-            {
-              staticClass:
-                "block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 focus:outline-none focus:text-gray-800 focus:bg-gray-100 transition duration-150 ease-in-out",
-              attrs: { href: "#" }
-            },
-            [_vm._v("Your Profile")]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass:
-                "mt-1 block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 focus:outline-none focus:text-gray-800 focus:bg-gray-100 transition duration-150 ease-in-out",
-              attrs: { href: "#" }
-            },
-            [_vm._v("Settings")]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass:
-                "mt-1 block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 focus:outline-none focus:text-gray-800 focus:bg-gray-100 transition duration-150 ease-in-out",
-              attrs: { href: "#" }
-            },
-            [_vm._v("Sign out")]
-          )
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "bg-indigo-900 border-b border-gray-200 px-4 py-5 sm:px-6"
-      },
-      [
-        _c("h2", { staticClass: "text-white text-lg font-semibold" }, [
-          _vm._v("\n                    Hello there\n                ")
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-indigo-400" }, [
-          _vm._v(
-            "\n                    asdasd asd as dasd asd asd asd asd s\n                "
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "bg-indigo-900 border-b border-gray-200 px-4 py-5 sm:px-6"
-      },
-      [
-        _c("h2", { staticClass: "text-white text-lg font-semibold" }, [
-          _vm._v("\n                        Hello there\n                    ")
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-indigo-400" }, [
-          _vm._v(
-            "\n                        asdasd asd as dasd asd asd asd asd s\n                    "
-          )
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -40761,8 +40267,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Lewis\sites\todo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Lewis\sites\todo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/lewis/sites/todo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/lewis/sites/todo/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -1991,6 +1991,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2001,7 +2012,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     self: function self() {
-      return this.$page.users[0];
+      return this.$page.self;
     },
     users: function users() {
       return this.$page.users;
@@ -24473,87 +24484,96 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "min-h-screen flex flex-col bg-gray-100" }, [
-    _c("main", { staticClass: "p-6 flex-1 flex" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "mr-6 max-w-sm bg-white overflow-hidden shadow-lg rounded-lg"
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass:
-                "bg-indigo-900 border-b border-gray-200 px-4 py-5 sm:px-6"
-            },
-            [
-              _c("h2", { staticClass: "text-white text-lg font-semibold" }, [
-                _vm._v(_vm._s(_vm.self.name))
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-indigo-400" }, [
-                _vm._v("asdasd asd as dasd asd asd asd asd s")
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {},
-            [
+  return _c("div", { staticClass: "bg-gray-100" }, [
+    _c("main", { staticClass: "h-screen p-6 flex" }, [
+      _c("div", { staticClass: "mr-6 w-80 bg-white shadow-lg rounded-lg" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "flex items-center border-b border-gray-200 px-4 py-5 sm:px-6"
+          },
+          [
+            _c("img", {
+              staticClass: "mr-4 h-10 w-10 rounded-full",
+              attrs: { src: _vm.self.avatar }
+            }),
+            _vm._v(" "),
+            _c("div", [
               _c(
-                "draggable",
-                {
-                  attrs: { "ghost-class": "ghost" },
-                  on: { change: _vm.changed },
-                  model: {
-                    value: _vm.self.tasks,
-                    callback: function($$v) {
-                      _vm.$set(_vm.self, "tasks", $$v)
-                    },
-                    expression: "self.tasks"
-                  }
-                },
-                _vm._l(_vm.self.tasks, function(task, n) {
-                  return _c(
-                    "div",
-                    { key: n, staticClass: "px-4 py-5 sm:p-6 border-b" },
-                    [
-                      _c("div", {
-                        domProps: { innerHTML: _vm._s(task.content) }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "-mb-6 -mx-6 p-3 text-right" }, [
-                        _c(
-                          "button",
-                          {
-                            on: {
-                              click: function($event) {
-                                return _vm.finish(task.id)
-                              }
-                            }
-                          },
-                          [_vm._v("Complete")]
-                        )
-                      ])
-                    ]
-                  )
-                }),
-                0
+                "h2",
+                { staticClass: "text-indigo-900 text-lg font-semibold" },
+                [_vm._v(_vm._s(_vm.self.name))]
               ),
               _vm._v(" "),
-              _c("div", {
-                staticClass: "px-4 py-5 sm:p-6 border-b",
-                attrs: { contenteditable: "true" },
-                on: { blur: _vm.create }
-              })
-            ],
-            1
-          )
-        ]
-      ),
+              _c("p", { staticClass: "text-indigo-700" }, [_vm._v("Online")])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {},
+          [
+            _c(
+              "draggable",
+              {
+                attrs: { "ghost-class": "ghost" },
+                on: { change: _vm.changed },
+                model: {
+                  value: _vm.self.tasks,
+                  callback: function($$v) {
+                    _vm.$set(_vm.self, "tasks", $$v)
+                  },
+                  expression: "self.tasks"
+                }
+              },
+              _vm._l(_vm.self.tasks, function(task, n) {
+                return _c(
+                  "div",
+                  { key: n, staticClass: "px-4 py-5 sm:p-6 border-b" },
+                  [
+                    _c("div", {
+                      domProps: { innerHTML: _vm._s(task.content) }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "-mb-6 -mx-6 p-3 text-right" }, [
+                      _c(
+                        "button",
+                        {
+                          on: {
+                            click: function($event) {
+                              return _vm.finish(task.id)
+                            }
+                          }
+                        },
+                        [_vm._v("Complete")]
+                      )
+                    ])
+                  ]
+                )
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "mt-auto bg-indigo-900 text-white px-4 py-2 font-semibold"
+              },
+              [_vm._v("Create Task")]
+            ),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "px-4 py-5 sm:p-6 border-b bg-indigo-100",
+              attrs: { contenteditable: "true" },
+              on: { blur: _vm.create }
+            })
+          ],
+          1
+        )
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -24576,17 +24596,24 @@ var render = function() {
                 "div",
                 {
                   staticClass:
-                    "bg-indigo-900 border-b border-gray-200 px-4 py-5 sm:px-6"
+                    "flex items-center bg-white border-b border-gray-200 px-4 py-5 sm:px-6"
                 },
                 [
-                  _c(
-                    "h2",
-                    { staticClass: "text-white text-lg font-semibold" },
-                    [_vm._v(_vm._s(user.name))]
-                  ),
+                  _c("img", {
+                    staticClass: "mr-4 h-10 w-10 rounded-full",
+                    attrs: { src: user.avatar }
+                  }),
                   _vm._v(" "),
-                  _c("p", { staticClass: "text-indigo-400" }, [
-                    _vm._v("asdasd asd as dasd asd asd asd asd s")
+                  _c("div", [
+                    _c(
+                      "h2",
+                      { staticClass: "text-indigo-900 text-lg font-semibold" },
+                      [_vm._v(_vm._s(user.name))]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "text-indigo-700" }, [
+                      _vm._v("Online")
+                    ])
                   ])
                 ]
               ),

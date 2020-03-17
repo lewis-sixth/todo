@@ -1,11 +1,14 @@
 <template>
-  <div class="min-h-screen flex flex-col bg-gray-100">
-    <main class="p-6 flex-1 flex">
+  <div class="bg-gray-100">
+    <main class="h-screen p-6 flex">
       <!-- card -->
-      <div class="mr-6 max-w-sm bg-white overflow-hidden shadow-lg rounded-lg">
-        <div class="bg-indigo-900 border-b border-gray-200 px-4 py-5 sm:px-6">
-          <h2 class="text-white text-lg font-semibold">{{ self.name }}</h2>
-          <p class="text-indigo-400">asdasd asd as dasd asd asd asd asd s</p>
+      <div class="mr-6 w-80 bg-white shadow-lg rounded-lg">
+        <div class="flex items-center border-b border-gray-200 px-4 py-5 sm:px-6">
+          <img :src="self.avatar" class="mr-4 h-10 w-10 rounded-full" />
+          <div>
+            <h2 class="text-indigo-900 text-lg font-semibold">{{ self.name }}</h2>
+            <p class="text-indigo-700">Online</p>
+          </div>
         </div>
         <div class>
           <draggable v-model="self.tasks" ghost-class="ghost" @change="changed">
@@ -17,7 +20,12 @@
             </div>
           </draggable>
 
-          <div class="px-4 py-5 sm:p-6 border-b" contenteditable="true" @blur="create"></div>
+          <div class="mt-auto bg-indigo-900 text-white px-4 py-2 font-semibold">Create Task</div>
+          <div
+            class="px-4 py-5 sm:p-6 border-b bg-indigo-100"
+            contenteditable="true"
+            @blur="create"
+          ></div>
         </div>
       </div>
 
@@ -33,9 +41,12 @@
           :class="n !== users.length - 1 ? 'border-r' : ''"
           style="scroll-snap-align: start;"
         >
-          <div class="bg-indigo-900 border-b border-gray-200 px-4 py-5 sm:px-6">
-            <h2 class="text-white text-lg font-semibold">{{ user.name }}</h2>
-            <p class="text-indigo-400">asdasd asd as dasd asd asd asd asd s</p>
+          <div class="flex items-center bg-white border-b border-gray-200 px-4 py-5 sm:px-6">
+            <img :src="user.avatar" class="mr-4 h-10 w-10 rounded-full" />
+            <div>
+              <h2 class="text-indigo-900 text-lg font-semibold">{{ user.name }}</h2>
+              <p class="text-indigo-700">Online</p>
+            </div>
           </div>
           <div class>
             <draggable v-model="user.tasks" ghost-class="ghost">
@@ -67,7 +78,7 @@ export default {
 
   computed: {
     self() {
-      return this.$page.users[0];
+      return this.$page.self;
     },
     users() {
       return this.$page.users;

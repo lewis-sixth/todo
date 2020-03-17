@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\User;
 use Socialite;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -24,8 +26,25 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('google')->user();
+        $user = $this->getOrCreateUser(Socialite::driver('google')->user());
 
-        return $user;
+        Auth::login($user, true);
+
+        return redirect()->route('dashboard');
+    }
+
+    protected function getOrCreateUser($user)
+    {
+        $existingUser = User::where('email', $user->email)->first();
+
+        if ($existingUser) {
+            return $existingUser;
+        }
+
+        return User::create([
+            'name' => $user->name,
+            'email' => $user->email,
+            'avatar' => $user->avatar
+        ]);
     }
 }
